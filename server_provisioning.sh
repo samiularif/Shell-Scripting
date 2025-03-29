@@ -20,3 +20,5 @@ aws ec2 run-instances \
 #Wait for the instance to be ready
 INSTANCE_ID=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=MyInstance" --query "Reservations[0].Instances[0].InstanceId" --output text)
 aws ec2 wait instance-running --instance-ids $INSTANCE_ID
+
+echo "EC2 instance is ready"
